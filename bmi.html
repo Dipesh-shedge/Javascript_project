@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI_calcualtor</title>
+</head>
+
+<body>
+
+
+    <input id="height" placeholder="enter your height"></input>
+    <br>
+    <br>
+    <input id="weight" placeholder="enter your weight"></input>
+    <br>
+    <br>
+    <br>
+    <button id="display">Calculate</button>
+    <br>
+    <div>
+        <p id="display2"></p>
+        <p id="display3"></p>
+    </div>
+    <br>
+
+    <div></div>
+
+
+</body>
+<script>
+
+    let userinput = document.querySelector('#display')
+    const userinput2 = function () {
+
+
+        const height = parseInt(document.querySelector('#height').value)
+        const weight = parseInt(document.querySelector('#weight').value)
+
+        let show = document.querySelector('#display2')
+        let show2 = document.querySelector('#display3');
+
+        let finalresult = weight/((height * height)/10000)
+
+
+
+        if (height < 0 || height === undefined || isNaN(height)) { show.innerHTML = "enter valid height" }
+
+        else if (weight < 0 || weight === undefined || isNaN(weight)) { show.innerHTML = "enter valid Weight" }
+
+        else { show.innerHTML = `your BMI is ${finalresult}` };
+
+
+        if (finalresult > 0 && finalresult < 18.5) { show2.innerHTML = "you are underweight" } 
+        else if (finalresult > 18.5 && finalresult < 24.9) { show2.innerHTML = "you are healthy" }
+        else if (finalresult > 25 && finalresult < 29.9) { show2.innerHTML = "you are overweight"} 
+        else if (finalresult > 30 && finalresult < 34.9) { show2.innerHTML = "you are in class I obesity"}
+        else if (finalresult > 35 && finalresult < 39.9) { show2.innerHTML = "you are in class II obesity"}
+        else if (finalresult > 40) { show2.innerHTML = "you are in class III obesity"}
+
+
+
+
+
+        // console.log(`your ${height} & ${weight}` )
+    }
+
+
+    userinput.addEventListener('click', userinput2)
+
+</script>
+
+</html>
